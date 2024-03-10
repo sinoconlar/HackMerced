@@ -43,4 +43,4 @@ function determineIllness(symptoms) {
             document.getElementById('results').innerText = "No illnesses detected based on symptoms.";
         }
     };
- } 
+ }
