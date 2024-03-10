@@ -18,7 +18,7 @@ const illnesses = {
     'Ear Infection': ['ear pain', 'fluid drainage', 'hearing loss'],
     'Urinary Tract Infection': ['frequent urination', 'burning sensation while urinating', 'bloody urine'],
     'Allergic Reaction': ['hives', 'swelling', 'difficulty breathing'],
-    'Heart Attack': ['chest pain or discomfort', 'shortness of breath', 'nausea'],
+    'Heart Attack': ['chest pain, discomfort', 'shortness of breath', 'nausea'],
     'Concussion': ['headache', 'confusion', 'nausea', 'vomiting'],
     'Tumors': ['lump', 'unexplained weight loss', 'changes in bowel or bladder habits'],
     'Diabetes': ['increased thirst', 'frequent urination', 'fatigue'],
@@ -42,7 +42,7 @@ const illnesses = {
     'Tuberculosis': ['cough', 'weight loss', 'fatigue'],
     'Gingivitis': ['bleeding gums', 'swollen gums', 'bad breath'],
     'Muscle Spasm': ['stiffness', 'pain', 'ontractions', 'muscle aches', 'aches']
-    }
+}
 
 // Add descriptions for each illness
  const description = {
@@ -90,6 +90,7 @@ const illnesses = {
     'Muscle Spasm': ['A muscle spasm is a sudden, involuntary contraction of one or more muscles. Symptoms may include stiffness, pain, and muscle aches.']
  }
  
+ /*
  // Preventive mesures and what do about illness 
  const prevent = {
     'Migraine': ['Maintain a good sleep and exercise sechdule, mange your stress.'],
@@ -135,3 +136,4 @@ const illnesses = {
     'Gingivitis': ['Brush teeth twice a day, floss, and use mouthwash.'],
     'Muscle Spasm': ['Keep good posture, stretch daily, and stay hydrated.'],   
 }
+*/
