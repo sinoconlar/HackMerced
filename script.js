@@ -28,13 +28,11 @@ const illnesses = {
     'Stroke' : [], 
     'Vertigo' : [],
     'Thyroid' : [],
-    'Epilepsy' : [], 
-    ''
-
-
+    'Epilepsy' : []
+    
     // Define more illnesses and their associated symptoms
  };
- 
+
  
  const description = {
     'Migraine': ['A migraine is a type of headache. It may occur with symptoms such as nausea, vomiting, or sensitivity to light and sound. In most people, a throbbing pain is felt only on one side of the head.'],
@@ -43,9 +41,19 @@ const illnesses = {
     'Common Cold': ['Typical cold symptoms include a stuffy or runny nose, sneezing, coughing, and a sore throat, with occasional mild fever, weakness, headache, and joint pain. While colds can be mistaken for the flu, flu symptoms are typically more severe.'],
     'Bronchitis': ['Bronchitis occurs when the lungs airways (bronchial tubes) become inflamed, leading to coughing, often with mucus. It can be acute (short-term) or chronic (long-term), with acute cases often caused by infections and possibly contagious.'],
     'Pneumonia': ['Pneumonia is an infection that affects one or both lungs. It causes the air sacs, or alveoli, of the lungs to fill up with fluid or pus. Bacteria, viruses, or fungi may cause pneumonia.'],
+
     //Illness with corresponding description
  }
  
+ const tips = {
+    'Migraine': ['Ice your head'],
+    'Tension Headache': ['Put your hand on your knees'],
+    'Flu': ['Sleep'],
+    'Common Cold': ['cough drops'],
+    'Bronchitis': ['antibiotichs'],
+    'Pneumonia': ['seek professional help'],
+    //
+ };
  
  function determineIllness(symptoms) {
     symptoms = symptoms.toLowerCase();
@@ -87,19 +95,17 @@ const illnesses = {
  
  function get() {
     let symptoms = document.getElementById('symptoms').value;
- 
- 
     let detectedIllnesses = determineIllness(symptoms);
- 
- 
+    //prints illness with corresponding desription
     if (detectedIllnesses.length > 0) {
         let message = "Detected illnesses based on symptoms:\n";
         detectedIllnesses.forEach(illness => {
-            message += `${illness}: ${description[illness]}\n`;
+            message += `${illness}: ${description[illness]} :${tips[illness]}\n`;
         });
         document.getElementById('results').innerText = message;
     } else {
         document.getElementById('results').innerText = "No illnesses detected based on symptoms.";
     }
  }
+ 
  
