@@ -28,18 +28,19 @@ function determineIllness(symptoms) {
  }
  
  function get(event) {
-    if (event.key === 'Enter') {
+    if(event.key === 'Enter'){
         let symptoms = document.getElementById('symptoms').value;
         let detectedIllnesses = determineIllness(symptoms);
-    
         if (detectedIllnesses.length > 0) {
-            let message = "Detected illnesses based on symptoms:\n";
+            let messages = []; // Array to store individual illness-description messages
             detectedIllnesses.forEach(illness => {
-                message += `${illness}: ${description[illness]}\n`;
+                let illnessMessage = `${illness}:`;
+                let descriptionMessage = `${description[illness][0]}\n`; // Assuming each illness has only one description
+                messages.push(illnessMessage, descriptionMessage);
             });
-            document.getElementById('results').innerText = message;
+            document.getElementById('results').innerText = messages.join('\n'); // Joining all messages with newline separator
         } else {
             document.getElementById('results').innerText = "No illnesses detected based on symptoms.";
         }
-    }
- }
+    };
+ } 
