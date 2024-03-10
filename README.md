@@ -1,5 +1,4 @@
 # HackMerced
 
-HackMerced IX project files
+HackMerced IX website files
 
-"hackmerced-project" -- REACT website
