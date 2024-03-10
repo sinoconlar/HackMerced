@@ -23,7 +23,7 @@ const illnesses = {
     'Concussion': ['headache', 'confusion', 'nausea', 'vomiting'],
     'Tumors': ['lump', 'unexplained weight loss', 'changes in bowel' , 'changes in bladder habits'],
     'Diabetes': ['increased thirst', 'frequent urination', 'fatigue'],
-    'Carpal Tunnel Syndrome': ['numbness in hands', 'tingling in hands', 'weakness in the hand', 'pain in the wrist', 'pain in the hand'],
+    'Carpal Tunnel Syndrome': ['numbness in hands', 'tingling in hands', 'weakness in the hand', 'hand', 'wrist', 'pain in the wrist', 'pain in the hand'],
     'Sleep Apnea': ['loud snoring', 'breathing cessation', 'tired', 'fatigue', 'weakness'],
     'Acid Reflux': ['heartburn', 'regurgitation', 'difficulty swallowing'],
     'Stroke': ['numbness', 'weakness', 'confusion', 'trouble speaking'],
