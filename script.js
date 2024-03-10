@@ -27,8 +27,8 @@ function determineIllness(symptoms) {
     return sortedIllnesses.slice(0, 3);
  }
  
- function get(event) {
-    if(event.key === 'Enter'){
+ function get() {
+    
         let symptoms = document.getElementById('symptoms').value;
         let detectedIllnesses = determineIllness(symptoms);
         if (detectedIllnesses.length > 0) {
@@ -42,5 +42,4 @@ function determineIllness(symptoms) {
         } else {
             document.getElementById('results').innerText = "No illnesses detected based on symptoms.";
         }
-    };
  }
