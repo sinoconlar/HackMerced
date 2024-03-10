@@ -1,15 +1,15 @@
+const illnesses = {
+    'Migraine': ['headache', 'nausea', 'sensitivity to light'],
+    'Tension Headache': ['headache', 'neck pain'],
+    'Flu': ['fever', 'cough', 'fatigue'],
+    'Common Cold': ['fever', 'cough', 'sore throat'],
+    'Bronchitis': ['cough', 'chest congestion', 'shortness of breath'],
+    'Pneumonia': ['cough', 'fever', 'shortness of breath'],
+    // Define more illnesses and their associated symptoms
+};
+
 function determineIllness(symptoms) {
     symptoms = symptoms.toLowerCase();
-    let illnesses = {
-        'Migraine': ['headache', 'nausea', 'sensitivity to light'],
-        'Tension Headache': ['headache', 'neck pain'],
-        'Flu': ['fever', 'cough', 'fatigue'],
-        'Common Cold': ['fever', 'cough', 'sore throat'],
-        'Bronchitis': ['cough', 'chest congestion', 'shortness of breath'],
-        'Pneumonia': ['cough', 'fever', 'shortness of breath'],
-        // Define more illnesses and their associated symptoms
-    };
-
     let illnessMatches = {};
 
     // Iterate over each illness and count the number of matching symptoms

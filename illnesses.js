@@ -1,4 +1,4 @@
-// illnesses.js
+// DOES NOT WORK
 
 const illnesses = {
     'Migraine': ['headache', 'nausea', 'sensitivity to light'],
@@ -11,4 +11,4 @@ const illnesses = {
 };
 
 // Export the list of illnesses
-export default illnesses;
+export { illnesses };
