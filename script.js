@@ -1,80 +1,44 @@
-const url = "https://clinicaltables.nlm.nih.gov/api/conditions/v3/search";
-let showAllClicked = false;
+function determineIllness(symptoms) {
+    symptoms = symptoms.toLowerCase();
+    let illnesses = {
+        'Migraine': ['headache', 'nausea', 'sensitivity to light'],
+        'Tension Headache': ['headache', 'neck pain'],
+        'Flu': ['fever', 'cough', 'fatigue'],
+        'Common Cold': ['fever', 'cough', 'sore throat'],
+        'Bronchitis': ['cough', 'chest congestion', 'shortness of breath'],
+        'Pneumonia': ['cough', 'fever', 'shortness of breath'],
+        // Define more illnesses and their associated symptoms
+    };
+
+    let illnessMatches = {};
+
+    // Iterate over each illness and count the number of matching symptoms
+    for (let illness in illnesses) {
+        let symptomMatches = 0;
+        illnesses[illness].forEach(symptom => {
+            if (symptoms.includes(symptom)) {
+                symptomMatches++;
+            }
+        });
+        illnessMatches[illness] = symptomMatches;
+    }
+
+    // Sort the illnesses based on the number of matching symptoms (descending order)
+    let sortedIllnesses = Object.keys(illnessMatches).sort((a, b) => illnessMatches[b] - illnessMatches[a]);
+
+    // Return the top three illnesses with the most matching symptoms
+    return sortedIllnesses.slice(0, 3);
+}
 
 function get() {
-    const name = document.getElementById("name").value;
-    var xhttp = new XMLHttpRequest();
-    let flag = false;
-    xhttp.open("GET", url + "/grades");
-    xhttp.send();
-    xhttp.onload = function() {
-        let data = JSON.parse(xhttp.response);
-        let keys = Object.keys(data);
-        for (let i = 0; i < keys.length; i++) {
-            if(keys[i] == name) {
-                document.getElementById("get_grade").value = data[keys[i]];
-                flag = true;
-            }
-        }
-        if(flag == false) {
-            document.getElementById("get_grade").value = "Name not found";
-        }
-    }
-}
+    let symptoms = document.getElementById('symptoms').value;
 
-function add() {
-    const name = document.getElementById("name2").value;
-    const grade = document.getElementById("grade2").value;
-    const body = {"name": name, "grade": grade};
-    var xhttp = new XMLHttpRequest();
+    let detectedIllnesses = determineIllness(symptoms);
 
-    xhttp.open("POST", url + "/grades", true);
-    xhttp.setRequestHeader("Content-Type", "application/json");
-    let json_data = JSON.stringify(body);
-    xhttp.send(json_data);
-}
-
-function edit() {
-    const name = document.getElementById("name3").value;
-    const grade = document.getElementById("grade3").value;
-    const body = {"grade": grade};
-    var xhttp = new XMLHttpRequest();
-
-    xhttp.open("PUT", url + "/grades" + "/" + name, true);
-    xhttp.setRequestHeader("Content-Type", "application/json");
-    let json_data = JSON.stringify(body);
-    xhttp.send(json_data);
-}
-
-function del() {
-    const name = document.getElementById("name4").value;
-    var xhttp = new XMLHttpRequest();
-
-    xhttp.open("DELETE", url + "/grades" + "/" + name, true);
-    xhttp.setRequestHeader("Content-Type", "application/json");
-    xhttp.send();
-}
-
-function find() {
-    var xhttp = new XMLHttpRequest();
-    let text = "<table class='center' border='1'><tr><th>Student Name</th><th>Grade</th></tr>";
-    xhttp.open("GET", url + "/grades");
-    xhttp.send();
-
-    xhttp.onload = function() {
-        let data = JSON.parse(xhttp.response);
-        let keys = Object.keys(data);
-        if (showAllClicked) {
-            document.getElementById("get_all").innerHTML = "";
-            showAllClicked = false;
-        } 
-        else {
-            for (let i = 0; i < keys.length; i++) {
-                text += "<tr><td>" + keys[i] + "</td><td>" + data[keys[i]] + "</td></tr>";
-            }
-            text += "</table>";
-            document.getElementById("get_all").innerHTML = text;
-            showAllClicked = true;
-        }
+    if (detectedIllnesses.length > 0) {
+        let message = "Detected illnesses based on symptoms: " + detectedIllnesses.join(', ');
+        document.getElementById('results').innerText = message;
+    } else {
+        document.getElementById('results').innerText = "No illnesses detected based on symptoms.";
     }
 }
