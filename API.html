@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Checker</title>
+</head>
+<body>
+    <textarea id="symptomsInput" rows="4" cols="50" placeholder="Enter your symptoms here..."></textarea>
+    <button onclick="checkSymptoms()">Check Symptoms</button>
+    <div id="diagnosisResult"></div>
+
+    <script>
+        async function checkSymptoms() {
+            const userInput = document.getElementById('symptomsInput').value.toLowerCase();
+            let diagnosis = '';
+
+            // Perform keyword analysis
+            if (userInput.includes('headache')) {
+                diagnosis = 'Migraine';
+            } else if (userInput.includes('fever')) {
+                diagnosis = 'Flu';
+            } else if (userInput.includes('cough') && userInput.includes('shortness of breath')) {
+                diagnosis = 'Pneumonia';
+            } // Add more if statements for other symptoms and possible diagnoses
+
+            if (diagnosis !== '') {
+                document.getElementById('diagnosisResult').innerText = 'Possible Diagnosis: ' + diagnosis;
+            } else {
+                document.getElementById('diagnosisResult').innerText = 'No specific diagnosis found based on provided symptoms.';
+            }
+
+            // Call the medical API with the symptoms for more accurate diagnosis
+            try {
+                const response = await fetch('https://health.gov/myhealthfinder/api/v3/itemlist.json?Type=topic', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ symptoms: userInput }),
+                });
+                const data = await response.json();
+                if (data && data.diagnosis) {
+                    document.getElementById('diagnosisResult').innerText += '\nAdditional Diagnosis (from API): ' + data.diagnosis;
+                }
+            } catch (error) {
+                console.error('Error fetching data from medical API:', error);
+            }
+        }
+    </script>
+</body>
+</html>

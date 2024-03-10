@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Checker</title>
+</head>
+<body>
+    <textarea id="symptomsInput" rows="4" cols="50" placeholder="Enter your symptoms here..."></textarea>
+    <button onclick="checkSymptoms()">Check Symptoms</button>
+    <div id="diagnosisResult"></div>
+
+    <script>
+        async function checkSymptoms() {
+            const userInput = document.getElementById('symptomsInput').value.toLowerCase();
+            let diagnosis = '';
+
+            // Perform keyword analysis
+            // Perform keyword analysis
+if (userInput.includes('headache')) {
+    diagnosis = 'Migraine';
+} else if (userInput.includes('fever')) {
+    diagnosis = 'Flu';
+} else if (userInput.includes('cough') && userInput.includes('shortness of breath')) {
+    diagnosis = 'Pneumonia';
+} else if (userInput.includes('nausea') && userInput.includes('vomiting')) {
+    diagnosis = 'Gastroenteritis';
+} else if (userInput.includes('stomach') && userInput.includes('pain')) {
+    diagnosis = 'Gastritis';
+} else if (userInput.includes('joint') && userInput.includes('pain')) {
+    diagnosis = 'Arthritis';
+} else if (userInput.includes('fatigue') && userInput.includes('muscle weakness')) {
+    diagnosis = 'Chronic Fatigue Syndrome';
+} else if (userInput.includes('chest') && userInput.includes('pain')) {
+    diagnosis = 'Angina';
+} else if (userInput.includes('abdominal') && userInput.includes('pain')) {
+    diagnosis = 'Appendicitis';
+} else if (userInput.includes('sore') && userInput.includes('throat')) {
+    diagnosis = 'Pharyngitis';
+} else if (userInput.includes('back') && userInput.includes('pain')) {
+    diagnosis = 'Muscle Strain';
+} else if (userInput.includes('itchy') && userInput.includes('eyes')) {
+    diagnosis = 'Allergic Conjunctivitis';
+} else if (userInput.includes('depression') || userInput.includes('anxiety')) {
+    diagnosis = 'Depression or Anxiety Disorder';
+} else if (userInput.includes('diarrhea')) {
+    diagnosis = 'Gastroenteritis or Food Poisoning';
+} else if (userInput.includes('dizziness') || userInput.includes('vertigo')) {
+    diagnosis = 'Vertigo';
+} else if (userInput.includes('rash') || userInput.includes('itchy')) {
+    diagnosis = 'Skin Allergy or Dermatitis';
+} else if (userInput.includes('urination') && userInput.includes('pain')) {
+    diagnosis = 'Urinary Tract Infection';
+} else if (userInput.includes('irregular') && userInput.includes('heartbeat')) {
+    diagnosis = 'Arrhythmia';
+} else if (userInput.includes('constipation') || userInput.includes('bloody stool')) {
+    diagnosis = 'Colitis or Irritable Bowel Syndrome';
+} else if (userInput.includes('numbness') && userInput.includes('tingling')) {
+    diagnosis = 'Peripheral Neuropathy';
+} else if (userInput.includes('swollen') && userInput.includes('glands')) {
+    diagnosis = 'Lymphadenitis';
+} else if (userInput.includes('muscle') && userInput.includes('spasm')) {
+    diagnosis = 'Muscle Spasm';
+} else if (userInput.includes('memory') && userInput.includes('loss')) {
+    diagnosis = 'Alzheimer\'s Disease or Dementia';
+} else if (userInput.includes('seizure') || userInput.includes('convulsion')) {
+    diagnosis = 'Epilepsy';
+} else if (userInput.includes('loss of appetite')) {
+    diagnosis = 'Anorexia';
+} else if (userInput.includes('sweating') && userInput.includes('profusely')) {
+    diagnosis = 'Hyperhidrosis';
+} else if (userInput.includes('palpitations')) {
+    diagnosis = 'Heart Palpitations';
+} else if (userInput.includes('blurred') && userInput.includes('vision')) {
+    diagnosis = 'Refractive Error or Eye Strain';
+} else if (userInput.includes('dry') && userInput.includes('cough')) {
+    diagnosis = 'Bronchitis';
+} else if (userInput.includes('hoarse') && userInput.includes('voice')) {
+    diagnosis = 'Laryngitis';
+} else if (userInput.includes('weight') && userInput.includes('loss')) {
+    diagnosis = 'Malnutrition or Hyperthyroidism';
+} else if (userInput.includes('weight') && userInput.includes('gain')) {
+    diagnosis = 'Hypothyroidism or Metabolic Syndrome';
+} else if (userInput.includes('excessive') && userInput.includes('thirst')) {
+    diagnosis = 'Diabetes';
+} else if (userInput.includes('difficulty') && userInput.includes('breathing')) {
+    diagnosis = 'Asthma or Chronic Obstructive Pulmonary Disease (COPD)';
+} else if (userInput.includes('yellow') && userInput.includes('skin')) {
+    diagnosis = 'Jaundice';
+} else if (userInput.includes('red') && userInput.includes('eye')) {
+    diagnosis = 'Conjunctivitis or Eye Infection';
+} else if (userInput.includes('bleeding') && userInput.includes('gums')) {
+    diagnosis = 'Gingivitis';
+} else if (userInput.includes('cold') && userInput.includes('sweats')) {
+    diagnosis = 'Night Sweats';
+} else if (userInput.includes('nasal') && userInput.includes('congestion')) {
+    diagnosis = 'Sinusitis';
+} else if (userInput.includes('difficulty') && userInput.includes('swallowing')) {
+    diagnosis = 'Dysphagia';
+} else if (userInput.includes('cramps') && userInput.includes('abdomen')) {
+    diagnosis = 'Menstrual Cramps';
+} else if (userInput.includes('irritability') && userInput.includes('mood swings')) {
+    diagnosis = 'Premenstrual Syndrome (PMS)';
+} else if (userInput.includes('snoring') && userInput.includes('loudly')) {
+    diagnosis = 'Sleep Apnea';
+} else if (userInput.includes('excessive') && userInput.includes('gas')) {
+    diagnosis = 'Flatulence';
+} else if (userInput.includes('tingling') && userInput.includes('fingers')) {
+    diagnosis = 'Carpal Tunnel Syndrome';
+} else if (userInput.includes('persistent') && userInput.includes('cough')) {
+    diagnosis = 'Chronic Bronchitis';
+} else if (userInput.includes('stiff') && userInput.includes('neck')) {
+    diagnosis = 'Meningitis';
+} else if (userInput.includes('abnormal') && userInput.includes('bruising')) {
+    diagnosis = 'Thrombocytopenia';
+} else if (userInput.includes('painful') && userInput.includes('urination')) {
+    diagnosis = 'Kidney Stones';
+} else if (userInput.includes('low') && userInput.includes('energy')) {
+    diagnosis = 'Chronic Fatigue Syndrome';
+} else if (userInput.includes('sudden') && userInput.includes('weight') && userInput.includes('loss')) {
+    diagnosis = 'Cancer';
+} else if (userInput.includes('persistent') && userInput.includes('back') && userInput.includes('pain')) {
+    diagnosis = 'Kidney Infection';
+}
+
+
+            if (diagnosis !== '') {
+                document.getElementById('diagnosisResult').innerText = 'Possible Diagnosis: ' + diagnosis;
+            } else {
+                document.getElementById('diagnosisResult').innerText = 'No specific diagnosis found based on provided symptoms.';
+            }
+
+            // Call the medical API with the symptoms for more accurate diagnosis
+            try {
+                const response = await fetch('https://health.gov/myhealthfinder/api/v3/itemlist.json?Type=topic', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ symptoms: userInput }),
+                });
+                const data = await response.json();
+                if (data && data.diagnosis) {
+                    document.getElementById('diagnosisResult').innerText += '\nAdditional Diagnosis (from API): ' + data.diagnosis;
+                }
+            } catch (error) {
+                console.error('Error fetching data from medical API:', error);
+            }
+        }
+    </script>
+</body>
+</html>

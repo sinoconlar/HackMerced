@@ -5,6 +5,33 @@ const illnesses = {
     'Common Cold': ['fever', 'cough', 'sore throat'],
     'Bronchitis': ['cough', 'chest congestion', 'shortness of breath'],
     'Pneumonia': ['cough', 'fever', 'shortness of breath'],
+    // 
+    'Asthma' : [],
+    'Food Poisioning' : [],
+    'Stomach Flu' : [],
+    'Lupus' : [], 
+    'Strep Throat' : [],
+    'Kideny Stone' : [],
+    'Allergies' : [],
+    'Dry Eye' : [],
+    'Pink Eye' : [],
+    'Ear Infection' : [],
+    'Urinary Tract Infection' : [], 
+    'Allergic Reaction' : [], 
+    'Heart Attack' : [],
+    'Concusion' : [],
+    'Tumors' : [],
+    'Diabetes' : [],
+    'Carpal Tunuel Syndorome' : [],
+    'Sleep Apnea' : [],
+    'Acid Reflux' : [],
+    'Stroke' : [], 
+    'Vertigo' : [],
+    'Thyroid' : [],
+    'Epilepsy' : [], 
+    ''
+
+
     // Define more illnesses and their associated symptoms
 };
 
